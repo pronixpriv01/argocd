@@ -1,11 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mywebapp
+  name: mywebapp  # This will be modified by Kustomize to kustom-mywebapp-v1
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: mywebapp  # Label will match what Kustomize sets
   template:
-    spec: # Pod spec
+    metadata:
+      labels:  # This label is important to match the selector
+        app: mywebapp
+    spec:
       containers:
       - name: mycontainer
         image: "devopsjourney1/mywebapp:latest"
@@ -17,7 +23,7 @@ spec:
         resources:
           requests:
             memory: "16Mi"
-            cpu: "50m"    # 500milliCPUs (1/2 CPU)
+            cpu: "50m"  # 500milliCPUs (1/2 CPU)
           limits:
             memory: "128Mi"
             cpu: "100m"

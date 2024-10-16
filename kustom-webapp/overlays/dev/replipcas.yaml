@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mywebapp
+  name: mywebapp  # This must match the name in the base deployment.yaml
 spec:
-  replicas: 3
+  replicas: 3  # Change replicas for the dev environment

@@ -1,15 +1,12 @@
 resources:
-- deployment.yaml
-- service.yaml
+  - deployment.yaml
+  - service.yaml
 
 commonLabels:
-  app: kustomwebapp
+  app: kustomwebapp  # Adds this label to all resources
 
 commonAnnotations:
-  app: mykustom-annontations
+  app: mykustom-annontations  # Adds this annotation to all resources
 
-namePrefix:
-  kustom-
-
-nameSuffix:
-  -v1
+namePrefix: kustom-  # Prefixes the resource names with "kustom-"
+nameSuffix: -v1      # Appends "-v1" to the resource names

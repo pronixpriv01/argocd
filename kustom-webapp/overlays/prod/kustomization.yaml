@@ -1,9 +1,9 @@
 bases:
-- ../../base
+  - ../../base  # Referencing the base configuration
 
-patches:
- - replicas.yaml
+patchesStrategicMerge:
+  - replicas.yaml  # Patch for changing replica count
 
 configMapGenerator:
-- name: mykustom-map
-  env: config.properties
+  - name: mykustom-map
+    env: config.properties  # Generate ConfigMap from config.properties
